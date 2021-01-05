@@ -1,0 +1,25 @@
+{
+  "name": "homework_13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rekroetch/burger.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rekroetch/burger/issues"
+  },
+  "homepage": "https://github.com/rekroetch/burger#readme",
+  "dependencies": {
+    "epress": "0.0.1-security",
+    "express-handlebars": "^5.2.0",
+    "mysql": "^2.18.1"
+  }
+}
