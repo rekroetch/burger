@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/rekroetch/burger#readme",
   "dependencies": {
-    "epress": "0.0.1-security",
+    "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "mysql": "^2.18.1"
   }
