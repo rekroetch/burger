@@ -1,35 +1,48 @@
-<h1>Eat-Da-Burger!</h1>
+<div class="container">
+    <h1>Eat-Da-Burger!</h1>
+   
+    <div class="row">
+        <div class="col uneaten">
+            <h2>Burgers waiting to be devoured!</h2>
 
-<h2>Burgers waiting to be devoured!</h2>
+            <ul>
+            {{#each burgers}}
+                {{#unless devoured}}
+                <button class="change-devoured" data-id="{{id}}" data-eaten="{{devoured}}">DEVOUR!
+                </button>
+                {{/unless}}
+            {{/each}}
+            </ul>
+        </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-    <button class="change-devoured" data-id="{{id}}" data-eaten="{{devoured}}">
-	</button>
-    {{/unless}}
-  {{/each}}
-</ul>
+        <div class="col eaten">
+            <h2>Just the crumbs left of these!</h2>
 
-<h2>Just the crumbs left of these!</h2>
+            <ul>
+            {{#each burgers}}
+                {{#if devoured}}
+                {{/if}}
+            {{/each}}
+            </ul>
+        </div>
+    </div>    
 
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-    {{/if}}
-  {{/each}}
-</ul>
+    <div class="row">
+        <div class="col add">
+            <h2>Add a Burger</h2>
+            <form class="create-form">
 
-<h2>Add a Burger</h2>
-<form class="create-form">
+                <div class="form-group">
+                    <label for="burgName">Burger Name:</label>
+                    <input type="text" id="burgName" burger_name="burger_name">
+                </div>
 
-  <div class="form-group">
-    <label for="burgName">Burger Name:</label>
-    <input type="text" id="burgName" burger_name="burger_name">
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+                <button class="submitBtn" type="submit">Add Burger</button>
+            </form>
+        </div>
+    </div>
+    
+</div>
 
 
 <script>
@@ -39,7 +52,8 @@
     var eaten = $(this).data("eaten");
 
     var newDevouredState = {
-      devoured: eaten
+     // MAY NEED TO CHANGE THIS BACK TO "EATEN"
+      devoured: true
     };
 
     // Send the PUT request.
