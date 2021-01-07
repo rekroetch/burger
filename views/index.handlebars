@@ -1,5 +1,11 @@
 <div class="container">
     <h1>Eat-Da-Burger!</h1>
+    <div class="row">
+        <div class="col">
+            {{!-- <img src="/assets/img/burger.jpg" alt="cartoon burger"> --}}
+            {{!-- <img src="http://clipart-library.com/images_k/burger-transparent/burger-transparent-14.jpg" alt="cartoon burger"> --}}
+        </div>
+    </div>
    
     <div class="row">
         <div class="col uneaten">
@@ -8,8 +14,11 @@
             <ul>
             {{#each burgers}}
                 {{#unless devoured}}
-                <button class="change-devoured" data-id="{{id}}" data-eaten="{{devoured}}">DEVOUR!
-                </button>
+                <li>
+                    {{burger_name}}
+                    <button class="change-devoured" data-id="{{id}}">DEVOUR!
+                    </button>
+                </li>
                 {{/unless}}
             {{/each}}
             </ul>
@@ -21,6 +30,9 @@
             <ul>
             {{#each burgers}}
                 {{#if devoured}}
+                <li>
+                    {{burger_name}}
+                </li>
                 {{/if}}
             {{/each}}
             </ul>
@@ -49,10 +61,8 @@
     $(function() {
   $(".change-devoured").on("click", function(event) {
     var id = $(this).data("id");
-    var eaten = $(this).data("eaten");
 
     var newDevouredState = {
-     // MAY NEED TO CHANGE THIS BACK TO "EATEN"
       devoured: true
     };
 
@@ -62,7 +72,7 @@
       data: newDevouredState
     }).then(
       function() {
-        console.log("changed devoured to", eaten);
+        
         // Reload the page to get the updated list
         location.reload();
       }
